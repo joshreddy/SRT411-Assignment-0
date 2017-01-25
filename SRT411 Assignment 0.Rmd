@@ -1,0 +1,270 @@
+---
+title: "SRT411 Assignment 0"
+author: "Joshua Reddy"
+date: "January 24, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##ToDo 1
+Compute the difference between 2014 and the
+year  you  started  at  this  university  and  divide
+this by the difference between 2014 and the year
+you  were  born.   Multiply  this  with  100  to  get
+the  percentage  of  your  life  you  have  spent  at
+this university.  Use brackets if you need them.
+
+```{r todo1}
+((2017-2015)/(2017-1997))*100
+```
+
+
+##Todo 2
+Repeat  the  previous  ToDo,  but  with  several
+steps  in  between.   You  can  give  the  variables
+any name you want, but the name has to start
+with a letter.
+
+```{r todo2}
+t <- 2017-2015 #represents time spent at Seneca
+l <- 2017-1997 #represents time spent alive
+t/l*100
+```
+
+##Todo 3
+Compute the sum of 4, 5, 8 and 11 by first com-bining them  into  a  vector  and  then  using  the function sum.
+
+```{r todo3, eval=FALSE}
+sum(c(4,5,8,11))
+```
+The sum of 4, 5, 8 and 11 is `r sum(c(4,5,8,11))`
+
+##Todo 4
+Plot 100 normal random numbers.
+
+```{r todo4}
+x <- rnorm(100)
+plot(x)
+```
+
+##Todo 5
+Find help for the sqrt function
+
+```{r todo5}
+help(sqrt)
+#or
+?sqrt()
+```
+
+##Todo 6
+Make a  le calledfirstscript.R containing R- code that generates  100  random  numbers  and plots them, and run this script several times.
+
+[firstscript.R](https://github.com/joshreddy/SRT411-Assignment-0/blob/master/firstscript.R)
+```{r todo6a, eval=FALSE}
+#contents of firstscript.R
+x <- rnorm(100)
+plot(x)
+```
+
+```{r todo6b}
+source("firstscript.R")
+source("firstscript.R")
+source("firstscript.R")
+```
+
+##Todo 7
+Put the numbers 31 - 60 in a vector named P and in a matric with 6 rows and 5 columns named Q. Tip: use the function seq. Look at the different types of ways scalars, vectors and matrices are denoted in the workspace window.
+
+```{r todo6}
+P <- seq(from=31, to=60)
+Q <- matrix(P, nrow=6, ncol=5)
+Q
+```
+
+##Todo 8
+Make a script file which constructs three ran-
+dom normal vectors of length 100. Call these
+vectors x1, x2 and x3. Make a data frame called
+t with three columns (called a, b and c) con-
+taining respectively x1, x1+x2 and x1+x2+x3.
+Call the following functions for this data frame:
+plot(t) and sd(t). Can you understand the
+results? Rerun this script a few times.
+
+[secondscript.R](https://github.com/joshreddy/SRT411-Assignment-0/blob/master/secondscript.R)
+```{r todo8a, eval=FALSE}
+#contents of secondscript.R
+x1<-rnorm(100)
+x2<-rnorm(100)
+x3<-rnorm(100)
+
+t<- data.frame(a=x1, b=x1+x2, c=x1+x2+x3)
+```
+
+```{r todo8b}
+source("secondscript.R")
+plot(t)
+sapply(t, sd) #sd does not work with data.frames anymore
+```
+```{r todo8c, echo=FALSE}
+source("secondscript.R")
+plot(t)
+sapply(t, sd)
+
+source("secondscript.R")
+plot(t)
+sapply(t, sd)
+```
+
+The results are ...
+
+
+#ToDo 9
+Add these lines to the script file of the previous
+section. Try to find out, either by experiment-
+ing or by using the help, what the meaning is of
+rgb, the last argument of rgb, lwd, pch, cex.
+
+[thirdscript](https://github.com/joshreddy/SRT411-Assignment-0/blob/master/thirdscript.R)
+```{r todo9a, eval=FALSE}
+#contents of thirdscript.R
+x1<-rnorm(100)
+x2<-rnorm(100)
+x3<-rnorm(100)
+
+t<- data.frame(a=x1, b=x1+x2, c=x1+x2+x3)
+
+#added lines
+plot(t$a, type="l", ylim=range(t),
+     lwd=3, col=rgb(0.9,0,0,0.9))
+lines(t$b, type="s", lwd=2,
+      col=rgb(0,0.9,0,0.9))
+points(t$c, pch=4, cex=1,
+       col=rgb(0,0,1,0.9))
+```
+
+```{r todo9b, echo=FALSE} 
+source("thirdscript.R")
+```
+
+###Meanings of Graphical Parameters
+rgb = Red, Green, Blue and Alpha Colour Specification where alpha is the opacity of the color.
+
+lwd = Line width relevant to default = 1.
+
+pch = Specify symbol for plot points.
+
+cex = The number that the plot text and symbols should be scaled to. 1 = default, 0.5 = 50% of default, 1.5 = 150% of default.
+
+##Todo 10
+Make a file called tst1.txt in Notepad from
+the example in Figure 4 and store it in your
+working directory. Write a script to read it, to
+multiply the column called g by 5 and to store
+it as tst2.txt.
+
+[tst1.txt](https://github.com/joshreddy/SRT411-Assignment-0/blob/master/tst1.txt)
+```{r todo10a}
+x<- read.table(file="tst1.txt", header = TRUE)
+x
+
+```
+
+[fourthscript.R](https://github.com/joshreddy/SRT411-Assignment-0/blob/master/fourthscript.Rs)
+```{r todo10b, eval=FALSE}
+#Contents of fourthscript.R
+a<-data.frame(read.table(file="tst1.txt", header = TRUE));
+a$g = a$g*5
+write.table(a, file="tst2.txt", row.names = FALSE)
+
+```
+
+[tst2.txt](https://github.com/joshreddy/SRT411-Assignment-0/blob/master/tst2.txt)
+```{r todo10c}
+z<- read.table(file="tst2.txt", header = TRUE)
+z
+```
+
+
+##Todo 11
+Compute the mean of the square root of a vec-
+tor of 100 random numbers. What happens?
+
+```{r todo11, warning=FALSE}
+w <- rnorm(100)
+mean(sqrt(w))
+```
+
+The result is NaN, which means 'not a number'. 
+
+You cannot square root negative numbers. It will give a NaN value.
+
+```{r todo11a, warning=FALSE}
+sqrt(w)
+```
+
+When the mean() function runs it cannot get the mean of non-numbers. This will return an error with the result of NaN.
+
+
+##Todo 12
+Make a graph with on the x-axis: today, Sin-
+terklaas 2014 and your next birthday and on
+the y-axis the number of presents you expect on
+each of these days. Tip: make two vectors first.
+
+```{r todo12}
+x<-strptime( c("20170124", "20171118", "20170621"), format="%Y%m%d")
+#0 Presents today, 1 Present on Sinterklaas 2017, 20 Presents on my birthday.
+y<- c(0,1,20)
+
+plot(x,y, type="p", pch=8, cex=1.5, xlab="Date", ylab="Number of Presents", col=rgb(1,0,0,1) )
+
+```
+
+#Todo 13
+Make a vector from 1 to 100. Make a for-loop
+which runs through the whole vector. Multiply
+the elements which are smaller than 5 and larger
+than 90 with 10 and the other elements with 0.1.
+
+```{r todo13}
+e <- seq(from=1, to=100, by=1)
+k <- c()
+for(i in 1:100)
+{
+  if (e[i]<5)
+  {
+    k[i]=e[i]*10;
+  }
+  else if (e[i]>90)
+  {
+    k[i]=e[i]*10;
+  }
+  else
+  {
+    k[i]=e[i]*0.1;
+  }
+}
+k
+
+```
+
+##Todo 14
+Write a function for the previous ToDo, so that you can feed it any vector you like (as argument). Use a for-loop in the function to do the computation with each element. Use the standard R function length in the specification of the counter.
+
+```{r todo14, eval=FALSE}
+fun= function(arg1,arg2 )
+{
+  vector[i]=arg1[i];
+  for(i in length(vector))
+  {
+    
+  }
+}
+
+
+
+```
