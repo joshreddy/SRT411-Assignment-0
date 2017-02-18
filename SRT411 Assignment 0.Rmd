@@ -37,7 +37,7 @@ t/l*100
 ##Todo 3
 Compute the sum of 4, 5, 8 and 11 by first com-bining them  into  a  vector  and  then  using  the function sum.
 
-```{r todo3, eval=FALSE}
+```{r todo3}
 sum(c(4,5,8,11))
 ```
 The sum of 4, 5, 8 and 11 is `r sum(c(4,5,8,11))`
@@ -255,7 +255,7 @@ k
 ##Todo 14
 Write a function for the previous ToDo, so that you can feed it any vector you like (as argument). Use a for-loop in the function to do the computation with each element. Use the standard R function length in the specification of the counter.
 
-```{r todo14, eval=FALSE}
+```{r todo14}
 x = function(arg1)
    {
      len = length(arg1)
@@ -283,7 +283,7 @@ x(arg1 = 60)
 ##Todo 15
 The ToDo above (ToDo 14) can be done more easily and quickly without a for-loop but with regular vector computations.
 
-```{r todo15, eval=FALSE}
+```{r todo15}
 y = function(arg1)
    {
      if (arg1 < 5)
