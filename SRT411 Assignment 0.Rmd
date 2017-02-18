@@ -122,7 +122,7 @@ sapply(t, sd)
 The results are ...
 
 
-#ToDo 9
+##ToDo 9
 Add these lines to the script file of the previous
 section. Try to find out, either by experiment-
 ing or by using the help, what the meaning is of
@@ -224,7 +224,7 @@ plot(x,y, type="p", pch=8, cex=1.5, xlab="Date", ylab="Number of Presents", col=
 
 ```
 
-#Todo 13
+##Todo 13
 Make a vector from 1 to 100. Make a for-loop
 which runs through the whole vector. Multiply
 the elements which are smaller than 5 and larger
@@ -256,15 +256,50 @@ k
 Write a function for the previous ToDo, so that you can feed it any vector you like (as argument). Use a for-loop in the function to do the computation with each element. Use the standard R function length in the specification of the counter.
 
 ```{r todo14, eval=FALSE}
-fun= function(arg1,arg2 )
-{
-  vector[i]=arg1[i];
-  for(i in length(vector))
-  {
-    
-  }
+x = function(arg1)
+   {
+     len = length(arg1)
+     for(i in 1:len)
+       {
+         if (arg1[i] < 5)
+           {
+             arg1[i] = arg1[i] * 5;
+             }
+         else if (arg1[i] > 90)
+           {
+             arg1[i] = arg1[i] * 10;
+             }
+         else
+           {
+             arg1[i] = arg1[i] * 0.1;
+             }
+         }
+     return (arg1)
 }
+x(arg1 = 60)
 
+```
 
+##Todo 15
+The ToDo above (ToDo 14) can be done more easily and quickly without a for-loop but with regular vector computations.
+
+```{r todo15, eval=FALSE}
+y = function(arg1)
+   {
+     if (arg1 < 5)
+       {
+         arg1 = arg1 * 5;
+         }
+     else if (arg1 > 90)
+       {
+         arg1 = arg1 * 10;
+         }
+     else
+       {
+         arg1 = arg1 * 0.1;
+         }
+     return (arg1)
+}
+y(arg1 = 91)
 
 ```
